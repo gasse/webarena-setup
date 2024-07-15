@@ -30,6 +30,14 @@ tar -xzf openstreetmap-website.tar.gz
 ## Run
 
 Easiest way is to start a tmux or screen session, then run scripts 01 to 06 in order. The last script serves the homepage and should stay up.
+```bash
+sudo bash 01_docker_load_images.sh
+sudo bash 02_docker_remove_containers.sh
+sudo bash 03_docker_create_containers.sh
+sudo bash 04_docker_start_containers.sh
+sudo bash 05_docker_patch_containers.sh
+sudo bash 06_serve_homepage.sh
+```
 
 ## Safety check
 
