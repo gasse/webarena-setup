@@ -13,5 +13,5 @@ docker load --input shopping_admin_final_0719.tar
 docker load --input postmill-populated-exposed-withimg.tar
 docker load --input gitlab-populated-final-port8023.tar
 docker load --input openstreetmap-website-db.tar.gz
-docker laod --input openstreetmap-website-web.tar.gz
+docker load --input openstreetmap-website-web.tar.gz
 
