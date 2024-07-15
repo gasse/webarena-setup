@@ -9,7 +9,7 @@ docker create --name gitlab -p $GITLAB_PORT:$GITLAB_PORT gitlab-populated-final-
 docker create --name wikipedia --volume=/home/azureuser/wiki/:/data -p $WIKIPEDIA_PORT:80 ghcr.io/kiwix/kiwix-serve:3.3.0 wikipedia_en_all_maxi_2022-05.zim
 
 cd openstreetmap-website/
-cp docker-compose.backup docker-compose.yml
+cp ../openstreetmap_docker-compose.yml.template docker-compose.yml
 sed -i "s|MAP_PORT|${MAP_PORT}|g" docker-compose.yml
 docker compose create
 
