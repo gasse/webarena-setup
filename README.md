@@ -27,6 +27,12 @@ Untar the openstreemap docker folder:
 tar -xzf openstreetmap-website.tar.gz
 ```
 
+Create a wiki folder and move the wikipedia file to it
+```sh
+mkdir wiki
+mv wikipedia_en_all_maxi_2022-05.zim wiki/
+```
+
 ## Run
 
 Easiest way is to start a tmux or screen session, then run scripts 01 to 06 in order. The last script serves the homepage and should stay up.
