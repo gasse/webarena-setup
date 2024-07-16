@@ -1,30 +1,22 @@
-> :warning: **This is not an official WebArena repo. For the official instructions refer to [WebArena](https://github.com/web-arena-x/webarena/tree/main/environment_docker)**
+> :warning: **This is not an official VisualWebArena repo. For the official instructions refer to [VisualWebArena](https://github.com/web-arena-x/visualwebarena/tree/main/environment_docker)**
 
-# webarena-setup
+# visualwebarena-setup
 
-Setup scripts for webarena.
+Setup scripts for visualwebarena.
 
 ## Configure
 
 Edit `00_vars.sh` with your ports and hostname (or ip address).
 
-Download the necessary docker images from the [official webarena repo](https://github.com/web-arena-x/webarena/tree/main/environment_docker). You'll need the following files:
+Download the necessary docker images from the [official visualwebarena repo](https://github.com/web-arena-x/visualwebarena/tree/main/environment_docker). You'll need the following files:
+- classifieds_docker_compose.zip
 - shopping_final_0712.tar
-- shopping_admin_final_0719.tar
 - postmill-populated-exposed-withimg.tar
-- gitlab-populated-final-port8023.tar
 - wikipedia_en_all_maxi_2022-05.zim
 
-Download the additional openstreetmap docker files from Zenodo:
+Unzip the classifieds docker folder:
 ```sh
-wget https://zenodo.org/records/12636845/files/openstreetmap-website-db.tar.gz
-wget https://zenodo.org/records/12636845/files/openstreetmap-website-web.tar.gz
-wget https://zenodo.org/records/12636845/files/openstreetmap-website.tar.gz
-```
-
-Untar the openstreemap docker folder:
-```sh
-tar -xzf openstreetmap-website.tar.gz
+unzip classifieds_docker_compose.zip
 ```
 
 Create a wiki folder and move the wikipedia file to it

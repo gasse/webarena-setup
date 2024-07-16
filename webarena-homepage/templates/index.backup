@@ -67,8 +67,17 @@
 </head>
 <body>
     <div id="container">
+        <br/>
         <div id="header">
-            <h1>Welcome to WebArena</h1>
+            <h1>Welcome to VisualWebArena</h1>
+        </div>
+
+        <div class="card" role="region" aria-label="Classifieds">
+            <img src="{{ url_for('static', filename='figures/classifieds.png') }}"  alt="Logo for Classifieds">
+            <a href="CLASSIFIEDS_URL">
+                <h2 id="appName">Classifieds</h2>
+            </a>
+            <p id="appDescription">A classifieds website for people to sell and buy things</p>
         </div>
 
         <div class="card" role="region" aria-label="OneStopShop">
@@ -79,36 +88,12 @@
          <p id="appDescription">An online shopping site</p>
         </div>
 
-        <div class="card" role="region" aria-label="Merchant Admin Portal">
-            <img src="{{ url_for('static', filename='figures/cms.png') }}"  alt="Logo for CMS">
-            <a href="SHOPPING_ADMIN_URL">
-                <h2 id="appName">Merchant Admin Portal</h2>
-            </a>
-            <p id="appDescription">An admin portal to manage E-commerce business (u: admin, p: admin1234)</p>
-        </div>
-
         <div class="card" role="region" aria-label="Reddit">
             <img src="{{ url_for('static', filename='figures/reddit.png') }}"  alt="Logo for Reddit">
             <a href="REDDIT_URL">
                 <h2 id="appName">Reddit</h2>
             </a>
             <p id="appDescription">A social news aggregation and discussion website</p>
-        </div>
-
-        <div class="card" role="region" aria-label="Gitlab">
-            <img src="{{ url_for('static', filename='figures/gitlab.png') }}"  alt="Logo for Gitlab">
-            <a href="GITLAB_URL">
-                <h2 id="appName">Gitlab</h2>
-            </a>
-            <p id="appDescription">a DevOps software</p>
-        </div>
-
-        <div class="card" role="region" aria-label="Map">
-            <img src="{{ url_for('static', filename='figures/map.png') }}"  alt="Logo for Map">
-            <a href="MAP_URL">
-                <h2 id="appName">OpenStreetMap</h2>
-            </a>
-            <p id="appDescription">North east US map</p>
         </div>
 
         <div class="card" role="region" aria-label="Calculator">
@@ -135,21 +120,6 @@
             <p id="appDescription">An online encyclopedia</p>
         </div>
 
-        <div class="card" role="region" aria-label="Gitlab Manual">
-            <img src="{{ url_for('static', filename='figures/manual1.png') }}"  alt="Logo for Gitlab Manual">
-            <a href="https://docs.gitlab.com/">
-                <h2 id="appName">Gitlab Documentation</h2>
-            </a>
-            <p id="appDescription">Documentation for GitLab</p>
-        </div>
-
-        <div class="card" role="region" aria-label="Admin Manual">
-            <img src="{{ url_for('static', filename='figures/manual2.png') }}"  alt="Logo for Admin Manual">
-            <a href="https://experienceleague.adobe.com/docs/commerce-admin/user-guides/home.html?lang=en">
-                <h2 id="appName">Admin Portal Manual</h2>
-            </a>
-            <p id="appDescription">Manual on using the admin portal</p>
-        </div>
         <!-- Repeat the above card structure for each app -->
 
     </div>
