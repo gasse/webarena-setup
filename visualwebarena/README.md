@@ -43,6 +43,6 @@ Go to the homepage and click each link to make sure the websites are operational
 
 ## Reset
 
-After an agent is evaluated on WebArena, a reset is required before another agent can be evaluated.
+After an agent is evaluated on VisualWebArena, a reset is required before another agent can be evaluated.
 
 Run scripts 02 to 06 again.
