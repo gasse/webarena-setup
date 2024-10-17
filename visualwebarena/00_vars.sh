@@ -15,3 +15,9 @@ SHOPPING_URL="http://${PUBLIC_HOSTNAME}:${SHOPPING_PORT}"
 REDDIT_URL="http://${PUBLIC_HOSTNAME}:${REDDIT_PORT}/forums/all"
 WIKIPEDIA_URL="http://${PUBLIC_HOSTNAME}:${WIKIPEDIA_PORT}/wikipedia_en_all_maxi_2022-05/A/User:The_other_Kiwix_guy/Landing"
 
+# Download the archive files from the visualwebarena instructions
+# https://github.com/web-arena-x/visualwebarena/tree/main/environment_docker
+# - shopping_final_0712.tar
+# - postmill-populated-exposed-withimg.tar
+
+ARCHIVES_LOCATION="./"
