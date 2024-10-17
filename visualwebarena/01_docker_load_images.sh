@@ -1,11 +1,6 @@
 #!/bin/bash
 
-# download the archives from the visualwebarena instructions
-# https://github.com/web-arena-x/visualwebarena/tree/main/environment_docker
+source 00_vars.sh
 
-# shopping_final_0712.tar
-# postmill-populated-exposed-withimg.tar
-
-docker load --input shopping_final_0712.tar
-docker load --input postmill-populated-exposed-withimg.tar
-
+docker load --input ${ARCHIVES_LOCATION}/shopping_final_0712.tar
+docker load --input ${ARCHIVES_LOCATION}/postmill-populated-exposed-withimg.tar
