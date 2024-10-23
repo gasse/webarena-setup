@@ -28,3 +28,16 @@ REDDIT_URL="http://${PUBLIC_HOSTNAME}:${REDDIT_PORT}/forums/all"
 GITLAB_URL="http://${PUBLIC_HOSTNAME}:${GITLAB_PORT}/explore"
 WIKIPEDIA_URL="http://${PUBLIC_HOSTNAME}:${WIKIPEDIA_PORT}/wikipedia_en_all_maxi_2022-05/A/User:The_other_Kiwix_guy/Landing"
 MAP_URL="http://${PUBLIC_HOSTNAME}:${MAP_PORT}"
+
+# download the archives from the webarena instructions
+# https://github.com/web-arena-x/webarena/tree/main/environment_docker
+#  - shopping_final_0712.tar
+#  - shopping_admin_final_0719.tar
+#  - postmill-populated-exposed-withimg.tar
+#  - gitlab-populated-final-port8023.tar
+
+# Download the additional openstreetmap docker files from Zenodo:
+# wget https://zenodo.org/records/12636845/files/openstreetmap-website-db.tar.gz
+# wget https://zenodo.org/records/12636845/files/openstreetmap-website-web.tar.gz
+
+ARCHIVES_LOCATION="./"
