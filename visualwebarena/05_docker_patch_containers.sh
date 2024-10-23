@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# stop if any error occur
+set -e
+
 source 00_vars.sh
 
 docker exec classifieds_db mysql -u root -ppassword osclass -e 'source docker-entrypoint-initdb.d/osclass_craigslist.sql'  # Populate DB with content

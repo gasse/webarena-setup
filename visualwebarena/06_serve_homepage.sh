@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# stop if any error occur
+set -e
+
 source 00_vars.sh
 
 # install flask in a venv

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# stop if any error occur
+set -e
+
 source 00_vars.sh
 
 # 1. make sure requests to HOSTNAME are made to the local ip (avoid firewall issues)
