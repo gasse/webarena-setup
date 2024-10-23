@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# stop if any error occur
+set -e
+
 source 00_vars.sh
 
 docker exec shopping /var/www/magento2/bin/magento setup:store-config:set --base-url="http://$PUBLIC_HOSTNAME:$SHOPPING_PORT" # no trailing /

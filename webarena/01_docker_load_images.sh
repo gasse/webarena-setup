@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# stop if any error occur
+set -e
+
 # download the archives from the webarena instructions
 # https://github.com/web-arena-x/webarena/tree/main/environment_docker
 

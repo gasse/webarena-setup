@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# stop if any error occur
+set -e
+
 docker start gitlab
 docker start shopping
 docker start shopping_admin
