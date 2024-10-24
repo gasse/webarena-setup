@@ -8,20 +8,25 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         # Extract path
         parsed_path = self.path
+        print(f"Request received {parsed_path}")
         if parsed_path == '/reset':
+            print("Running reset script...")
             try:
                 # Execute the reset script
                 subprocess.run(['bash', 'reset.sh'], check=True)
+                print("Reset successful!")
                 self.send_response(200)
                 self.send_header('Content-type', 'text/html')
                 self.end_headers()
                 self.wfile.write(b'Reset script executed successfully')
             except subprocess.CalledProcessError as e:
+                print("Reset failed :(")
                 self.send_response(500)
                 self.send_header('Content-type', 'text/html')
                 self.end_headers()
                 self.wfile.write(f'Error executing reset script: {e}'.encode())
         else:
+            print("Wrong request")
             self.send_response(404)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
