@@ -11,4 +11,4 @@ python3 -m venv venv_reset
 source venv_reset/bin/activate
 
 cd reset_server/
-python server.py --port ${RESET_PORT}
+python server.py --port ${RESET_PORT} > server_$(date -d "today" +"%Y%m%d%H%M").log
