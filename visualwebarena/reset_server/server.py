@@ -49,4 +49,7 @@ args = parser.parse_args()
 # Run the server
 with socketserver.TCPServer(('', args.port), CustomHandler) as httpd:
     logger.info(f'Serving on port {args.port}...')
-    httpd.serve_forever()
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        httpd.server_close()
