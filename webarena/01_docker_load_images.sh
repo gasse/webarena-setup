@@ -10,14 +10,14 @@ assert() {
 }
 
 # make sure all required files are here
-assert [.-f ${ARCHIVES_LOCATION}/shopping_final_0712.tar ]
-assert [.-f ${ARCHIVES_LOCATION}/shopping_admin_final_0719.tar ]
-assert [.-f ${ARCHIVES_LOCATION}/postmill-populated-exposed-withimg.tar ]
-assert [.-f ${ARCHIVES_LOCATION}/gitlab-populated-final-port8023.tar ]
-assert [.-f ${ARCHIVES_LOCATION}/openstreetmap-website-db.tar.gz ]
-assert [.-f ${ARCHIVES_LOCATION}/openstreetmap-website-web.tar.gz ]
-assert [.-f ${ARCHIVES_LOCATION}/openstreetmap-website.tar.gz ]
-assert [.-f ${ARCHIVES_LOCATION}/wikipedia_en_all_maxi_2022-05.zim ]
+assert [ -f ${ARCHIVES_LOCATION}/shopping_final_0712.tar ]
+assert [ -f ${ARCHIVES_LOCATION}/shopping_admin_final_0719.tar ]
+assert [ -f ${ARCHIVES_LOCATION}/postmill-populated-exposed-withimg.tar ]
+assert [ -f ${ARCHIVES_LOCATION}/gitlab-populated-final-port8023.tar ]
+assert [ -f ${ARCHIVES_LOCATION}/openstreetmap-website-db.tar.gz ]
+assert [ -f ${ARCHIVES_LOCATION}/openstreetmap-website-web.tar.gz ]
+assert [ -f ${ARCHIVES_LOCATION}/openstreetmap-website.tar.gz ]
+assert [ -f ${ARCHIVES_LOCATION}/wikipedia_en_all_maxi_2022-05.zim ]
 
 # load docker images
 docker load --input ${ARCHIVES_LOCATION}/shopping_final_0712.tar
