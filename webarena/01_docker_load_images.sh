@@ -43,7 +43,7 @@ load_docker_image "openstreetmap-website-db" "${ARCHIVES_LOCATION}/openstreetmap
 load_docker_image "openstreetmap-website-web" "${ARCHIVES_LOCATION}/openstreetmap-website-web.tar.gz"
 
 # extract openstreetmap archive locally (if needed)
-if [ ! -d ./openstreetmap-website ]
+if [ ! -d ./openstreetmap-website ]; then
   tar -xzf ${ARCHIVES_LOCATION}/openstreetmap-website.tar.gz
 fi
 

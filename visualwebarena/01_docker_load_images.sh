@@ -35,7 +35,7 @@ load_docker_image "shopping_final_0712" "${ARCHIVES_LOCATION}/shopping_final_071
 load_docker_image "postmill-populated-exposed-withimg" "${ARCHIVES_LOCATION}/postmill-populated-exposed-withimg.tar"
 
 # extract classifieds archive locally (if needed)
-if [ ! -d ./classifieds_docker_compose ]
+if [ ! -d ./classifieds_docker_compose ]; then
   unzip ${ARCHIVES_LOCATION}/classifieds_docker_compose.zip
 fi
 
