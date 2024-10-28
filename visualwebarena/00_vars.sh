@@ -18,7 +18,9 @@ WIKIPEDIA_URL="http://${PUBLIC_HOSTNAME}:${WIKIPEDIA_PORT}/wikipedia_en_all_maxi
 
 # Download the archive files from the visualwebarena instructions
 # https://github.com/web-arena-x/visualwebarena/tree/main/environment_docker
-# - shopping_final_0712.tar
-# - postmill-populated-exposed-withimg.tar
+#  - classifieds_docker_compose.zip
+#  - shopping_final_0712.tar
+#  - postmill-populated-exposed-withimg.tar
+#  - wikipedia_en_all_maxi_2022-05.zim
 
 ARCHIVES_LOCATION="./"
