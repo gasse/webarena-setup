@@ -9,6 +9,18 @@ assert() {
   fi
 }
 
+load_docker_image() {
+  local IMAGE_NAME="$1"
+  local INPUT_FILE="$2"
+
+  if ! docker images --format "{{.Repository}}:{{.Tag}}" | grep -q "^${IMAGE_NAME}:"; then
+    echo "Loading Docker image ${IMAGE_NAME} from ${INPUT_FILE}"
+    docker load --input "${INPUT_FILE}"
+  else
+    echo "Docker image ${IMAGE_NAME} is already loaded."
+  fi
+}
+
 # make sure all required files are here
 assert [ -f ${ARCHIVES_LOCATION}/shopping_final_0712.tar ]
 assert [ -f ${ARCHIVES_LOCATION}/shopping_admin_final_0719.tar ]
@@ -19,20 +31,20 @@ assert [ -f ${ARCHIVES_LOCATION}/openstreetmap-website-web.tar.gz ]
 assert [ -f ${ARCHIVES_LOCATION}/openstreetmap-website.tar.gz ]
 assert [ -f ${ARCHIVES_LOCATION}/wikipedia_en_all_maxi_2022-05.zim ]
 
-# load docker images
-docker load --input ${ARCHIVES_LOCATION}/shopping_final_0712.tar
-docker load --input ${ARCHIVES_LOCATION}/shopping_admin_final_0719.tar
-docker load --input ${ARCHIVES_LOCATION}/postmill-populated-exposed-withimg.tar
-docker load --input ${ARCHIVES_LOCATION}/gitlab-populated-final-port8023.tar
-docker load --input ${ARCHIVES_LOCATION}/openstreetmap-website-db.tar.gz
-docker load --input ${ARCHIVES_LOCATION}/openstreetmap-website-web.tar.gz
+# load docker images (if needed)
+load_docker_image "shopping_final_0712" "${ARCHIVES_LOCATION}/shopping_final_0712.tar"
+load_docker_image "shopping_admin_final_0719" ${ARCHIVES_LOCATION}/shopping_admin_final_0719.tar
+load_docker_image "postmill-populated-exposed-withimg" "${ARCHIVES_LOCATION}/postmill-populated-exposed-withimg.tar"
+load_docker_image "gitlab-populated-final-port8023" "${ARCHIVES_LOCATION}/gitlab-populated-final-port8023.tar"
+load_docker_image "openstreetmap-website-db" "${ARCHIVES_LOCATION}/openstreetmap-website-db.tar.gz"
+load_docker_image "openstreetmap-website-web" "${ARCHIVES_LOCATION}/openstreetmap-website-web.tar.gz"
 
-# extract openstreetmap archive locally
+# extract openstreetmap archive locally (if needed)
 if [ ! -d ./openstreetmap-website ]
   tar -xzf ${ARCHIVES_LOCATION}/openstreetmap-website.tar.gz
 fi
 
-# copy wikipedia archive to local folder
+# copy wikipedia archive to local folder (if needed)
 WIKIPEDIA_ARCHIVE=wikipedia_en_all_maxi_2022-05.zim
 if [ ! -f ./wiki/${WIKIPEDIA_ARCHIVE} ]; then
   mkdir -p ./wiki
