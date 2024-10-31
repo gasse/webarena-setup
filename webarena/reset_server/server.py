@@ -113,9 +113,10 @@ parser = argparse.ArgumentParser(description='Start a simple HTTP server to exec
 parser.add_argument('--port', type=int, help='Port number the server will listen to')
 args = parser.parse_args()
 
-# Initialise fail and lock files
+# Clear fail and lock files
 write_fail_message("")
-release_reset_lock()
+if reset_ongoing():
+    os.remove(lock_file_path)
 
 # Run the server
 with http.server.ThreadingHTTPServer(('', args.port), CustomHandler) as httpd:
