@@ -63,8 +63,6 @@ def initiate_reset():
 
 class CustomHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
-        host = self.headers.get('Host')
-        port = self.server.server_port
         parsed_path = self.path
         logger.info(f"{parsed_path} request received")
         match parsed_path:
@@ -74,13 +72,13 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     self.send_response(200)  # OK
                     self.send_header('Content-type', 'text/html')
                     self.end_headers()
-                    self.wfile.write(f'Reset initiated, check status <a href="http://{host}:{port}/status">here</a>'.encode())
+                    self.wfile.write(f'Reset initiated, check status <a href="/status">here</a>'.encode())
                 else:
                     logger.warning("Reset already running, ignoring request.")
                     self.send_response(418)  # I'm a teapot
                     self.send_header('Content-type', 'text/html')
                     self.end_headers()
-                    self.wfile.write(f'Reset already running, check status <a href="http://{host}:{port}/status">here</a>'.encode())
+                    self.wfile.write(f'Reset already running, check status <a href="/status">here</a>'.encode())
             case "/status":
                 fail_message = read_fail_message()
                 if reset_ongoing():
