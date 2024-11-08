@@ -13,7 +13,7 @@ docker exec forum sed -i \
   -e 's/^pm.max_spare_servers = .*/pm.max_spare_servers = 20/' \
   -e 's/^;pm.max_requests = .*/pm.max_requests = 500/' \
   /usr/local/etc/php-fpm.d/www.conf
-docker exec forum pkill -USR2 -o php-fpm
+docker exec forum supervisorctl restart php-fpm
 
 # classifieds
 docker exec classifieds_db mysql -u root -ppassword osclass -e 'source docker-entrypoint-initdb.d/osclass_craigslist.sql'  # Populate DB with content
