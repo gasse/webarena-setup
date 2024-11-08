@@ -37,6 +37,13 @@ sudo bash 05_docker_patch_containers.sh
 sudo bash 06_serve_homepage.sh
 ```
 
+Optional: to start the reset server (automated full instance resets) run the following in a side tmux or screen terminal
+```bash
+sudo bash 07_serve_reset.sh
+```
+
+Then you can trigger a full instance reset by accessing `http://${PUBLIC_HOSTNAME}:${RESET_PORT}/reset` check the instance status via `http://${PUBLIC_HOSTNAME}:${RESET_PORT}/reset`.
+
 ## Safety check
 
 Go to the homepage and click each link to make sure the websites are operational (some might take ~10 secs to load the first time).
