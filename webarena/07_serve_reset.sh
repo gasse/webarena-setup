@@ -11,4 +11,4 @@ python3 -m venv venv_reset
 source venv_reset/bin/activate
 
 cd reset_server/
-python server.py --port ${RESET_PORT} >> server.log 2>&1
+python server.py --port ${RESET_PORT} 2>&1 | tee -a server.log
