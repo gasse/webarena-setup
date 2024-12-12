@@ -29,6 +29,7 @@ docker exec shopping_admin /var/www/magento2/bin/magento cache:flush
 
 # gitlab
 docker exec gitlab sed -i "s|^external_url.*|external_url 'http://$PUBLIC_HOSTNAME:$GITLAB_PORT'|" /etc/gitlab/gitlab.rb
+docker exec gitlab bash -c "printf '\n\npuma[\"worker_processes\"] = 4' >> /etc/gitlab/gitlab.rb"  # bugfix https://github.com/ServiceNow/BrowserGym/issues/285
 docker exec gitlab gitlab-ctl reconfigure
 
 # maps
