@@ -36,16 +36,27 @@ cp ../openstreetmap-templates/docker-compose.yml ./docker-compose.yml
 cp ../openstreetmap-templates/leaflet.osm.js ./vendor/assets/leaflet/leaflet.osm.js
 cp ../openstreetmap-templates/fossgis_osrm.js ./app/assets/javascripts/index/directions/fossgis_osrm.js
 
+# sed works differently on Mac (BSD) and Linux (GNU),
+# so we need to check the version of sed to determine the correct syntax for in-place editing
+if [[ -z "$OSTYPE" ]]; then
+  echo "Error: OSTYPE is not set. Please run this script in a proper shell environment."
+  exit 1
+fi
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  SED_INPLACE=(-i '')  # MacOS
+else
+  SED_INPLACE=(-i)  # Linux
+fi
 # set up web server port
-sed -i "s|MAP_PORT|${MAP_PORT}|g" docker-compose.yml
+sed "${SED_INPLACE[@]}" "s|MAP_PORT|3000|g" docker-compose.yml
 # set up tile server URL
-sed -i "s|url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'|url: '${OSM_TILE_SERVER_URL}'|g" ./vendor/assets/leaflet/leaflet.osm.js
+sed "${SED_INPLACE[@]}" "s|url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'|url: '${OSM_TILE_SERVER_URL}'|g" ./vendor/assets/leaflet/leaflet.osm.js
 # set up geocoding server URL
-sed -i "s|nominatim_url:.*|nominatim_url: \"$OSM_GEOCODING_SERVER_URL\"|g" ./config/settings.yml
+sed "${SED_INPLACE[@]}" "s|nominatim_url:.*|nominatim_url: \"$OSM_GEOCODING_SERVER_URL\"|g" ./config/settings.yml
 # set up routing server URLs
-sed -i "s|fossgis_osrm_url:.*|fossgis_osrm_url: \"$OSM_ROUTING_SERVER_URL\"|g" ./config/settings.yml
-sed -i "s|__OSMCarSuffix__|${OSM_CAR_SUFFIX}|g" ./app/assets/javascripts/index/directions/fossgis_osrm.js
-sed -i "s|__OSMBikeSuffix__|${OSM_BIKE_SUFFIX}|g" ./app/assets/javascripts/index/directions/fossgis_osrm.js
-sed -i "s|__OSMFootSuffix__|${OSM_FOOT_SUFFIX}|g" ./app/assets/javascripts/index/directions/fossgis_osrm.js
+sed "${SED_INPLACE[@]}" "s|fossgis_osrm_url:.*|fossgis_osrm_url: \"$OSM_ROUTING_SERVER_URL\"|g" ./config/settings.yml
+sed "${SED_INPLACE[@]}" "s|__OSMCarSuffix__|${OSM_CAR_SUFFIX}|g" ./app/assets/javascripts/index/directions/fossgis_osrm.js
+sed "${SED_INPLACE[@]}" "s|__OSMBikeSuffix__|${OSM_BIKE_SUFFIX}|g" ./app/assets/javascripts/index/directions/fossgis_osrm.js
+sed "${SED_INPLACE[@]}" "s|__OSMFootSuffix__|${OSM_FOOT_SUFFIX}|g" ./app/assets/javascripts/index/directions/fossgis_osrm.js
 
 docker compose create
