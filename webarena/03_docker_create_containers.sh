@@ -48,7 +48,7 @@ else
   SED_INPLACE=(-i)  # Linux
 fi
 # set up web server port
-sed "${SED_INPLACE[@]}" "s|MAP_PORT|3000|g" docker-compose.yml
+sed "${SED_INPLACE[@]}" "s|MAP_PORT|${MAP_PORT}|g" docker-compose.yml
 # set up tile server URL
 sed "${SED_INPLACE[@]}" "s|url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'|url: '${OSM_TILE_SERVER_URL}'|g" ./vendor/assets/leaflet/leaflet.osm.js
 # set up geocoding server URL
